@@ -1,0 +1,12 @@
+name = "QuartzGetWindow"
+uuid = "17db2c3b-b50d-4e4f-b335-13ed37e59eac"
+authors = ["SatoshiTerasaki <terasakisatoshi.math@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+ObjectiveC = "e86c9b32-1129-44ac-8ea0-90d5bb39ded9"
+
+[compat]
+Libdl = "1.11.0"
+ObjectiveC = "3.1.0"
