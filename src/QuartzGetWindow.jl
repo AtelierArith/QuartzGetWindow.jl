@@ -76,8 +76,8 @@ function getActiveWindowName()::Union{String, Nothing}
 		)::CFDictionaryRef
 		if CFNumberGetValue(CFDictionaryGetValue(win, "kCGWindowLayer"), Cint) == 0
             a = CFString(CFDictionaryGetValue(win, "kCGWindowOwnerName"))
-            b = CFString(CFDictionaryGetValue(win, "kCGWindowName"))
-            return "$a $b"
+            #b = CFString(CFDictionaryGetValue(win, "kCGWindowName"))
+            return "$a"
         end
 	end
 	return nothing
@@ -95,8 +95,8 @@ function getWindowGeometry(title::AbstractString)::Union{NTuple{4, Cint}, Nothin
 		)::CFDictionaryRef
 		if CFNumberGetValue(CFDictionaryGetValue(win, "kCGWindowLayer"), Cint) == 0
             a = CFString(CFDictionaryGetValue(win, "kCGWindowOwnerName"))
-            b = CFString(CFDictionaryGetValue(win, "kCGWindowName"))
-            if occursin(title, "$(a) $(b)")
+            #b = CFString(CFDictionaryGetValue(win, "kCGWindowName"))
+            if occursin(title, "$(a)")
                 windowbounds = CFDictionaryGetValue(win, "kCGWindowBounds")
                 x_ = CFDictionaryGetValue(windowbounds, "X")
                 y_ = CFDictionaryGetValue(windowbounds, "Y")
