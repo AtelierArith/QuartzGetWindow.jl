@@ -1,5 +1,7 @@
 # QuartzGetWindow.jl
 
+[![CI](https://github.com/AtelierArith/QuartzGetWindow.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/AtelierArith/QuartzGetWindow.jl/actions/workflows/CI.yml)
+
 ## Description
 
 - This repository [QuartzGetWindow.jl](https://github.com/atelierarith/QuartzGetWindow.jl) gives a julia package for obtaining GUI information for macOS users.
