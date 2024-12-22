@@ -16,10 +16,10 @@ end
 end
 
 @testset "getActiveWindowGeometry" begin
-    windows = getAllActiveWindowNames()
-    if windows ≥ 1
+    n = getActiveWindowName()
+    if !isnothing(n)
         win = windows |> first
-        x,y,w,h = getActiveWindowGeometry(win)
+        x,y,w,h = getWindowGeometry(n)
         x ≥ 0
         y ≥ 0
         w ≥ 0
