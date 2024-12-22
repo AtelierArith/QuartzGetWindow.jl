@@ -71,8 +71,8 @@ function getAllActiveWindowNames()
                 kCGNullWindowID::Cint,
     )::CFArrayRef
     nwindows = @ccall CFArrayGetCount(windows::CFArrayRef)::Cint
-    names = Any[]
-    for i in (nwindows-1):-1:0
+    names = String[]
+    for i in 0:(nwindows-1)
         win = @ccall CFArrayGetValueAtIndex(
             windows::CFArrayRef, i::Cint
         )::CFDictionaryRef
@@ -90,7 +90,7 @@ function getActiveWindowName()::Union{String, Nothing}
 	            kCGNullWindowID::Cint,
 	)::CFArrayRef
     nwindows = @ccall CFArrayGetCount(windows::CFArrayRef)::Cint
-	for i in (nwindows-1):-1:0
+	for i in 0:(nwindows-1)
 		win = @ccall CFArrayGetValueAtIndex(
 			windows::CFArrayRef, i::Cint
 		)::CFDictionaryRef
@@ -109,14 +109,14 @@ function getWindowGeometry(title::AbstractString)::Union{NTuple{4, Cint}, Nothin
 	            kCGNullWindowID::Cint,
 	)::CFArrayRef
     nwindows = @ccall CFArrayGetCount(windows::CFArrayRef)::Cint
-	for i in (nwindows-1):-1:0
+	for i in 0:(nwindows-1)
 		win = @ccall CFArrayGetValueAtIndex(
 			windows::CFArrayRef, i::Cint
 		)::CFDictionaryRef
 		if CFNumberGetValue(CFDictionaryGetValue(win, "kCGWindowLayer"), Cint) == 0
             a = String(CFString(CFDictionaryGetValue(win, "kCGWindowOwnerName")))
             b = String(CFString(CFDictionaryGetValue(win, "kCGWindowName")))
-            if occursin(title, "$a $b")
+            if title == "$a $b"
                 windowbounds = CFDictionaryGetValue(win, "kCGWindowBounds")
                 x_ = CFDictionaryGetValue(windowbounds, "X")
                 y_ = CFDictionaryGetValue(windowbounds, "Y")
