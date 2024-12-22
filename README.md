@@ -71,4 +71,7 @@ You will get the following result:
 https://github.com/user-attachments/assets/d65a982e-ca71-4e1d-bf1a-da9a8a55a90b
 
 
+## Known issue
+
+Somethimes, `getActiveWindowName()` gets an unexpected result on Apple M-series. Restarting your macOS device may solve this issue, but I can't figure out why it happens.
 
