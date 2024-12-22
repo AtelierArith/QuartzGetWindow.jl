@@ -19,10 +19,13 @@ end
     n = getActiveWindowName()
     if !isnothing(n)
         win = windows |> first
-        x,y,w,h = getWindowGeometry(n)
-        x ≥ 0
-        y ≥ 0
-        w ≥ 0
-        h ≥ 0
+        r = getWindowGeometry(n)
+        !isnothing(r)
+            x,y,w,h = r
+            @test x ≥ 0
+            @test y ≥ 0
+            @test w ≥ 0
+            @test h ≥ 0
+        end
     end
 end
