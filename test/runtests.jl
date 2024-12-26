@@ -8,7 +8,7 @@ using JET
 end
 
 @testset "JET" begin
-    JET.report_package(QuartzGetWindow, target_defined_modules=true)
+    JET.report_package(QuartzGetWindow, target_defined_modules = true)
 end
 
 @testset "getAllActiveWindowNames" begin
@@ -18,10 +18,9 @@ end
 @testset "getActiveWindowGeometry" begin
     n = getActiveWindowName()
     if !isnothing(n)
-        win = windows |> first
         r = getWindowGeometry(n)
-        !isnothing(r)
-            x,y,w,h = r
+        if !isnothing(r)
+            x, y, w, h = r
             @test x ≥ 0
             @test y ≥ 0
             @test w ≥ 0
